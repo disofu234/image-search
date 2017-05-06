@@ -4,8 +4,10 @@ var request = require("request");
 
 var app  = express();
 
-mongo.connect("mongodb://localhost:27017/IMAGE_SEARCH", function(err, db){
+mongo.connect(process.env.MONGODB_URI, function(err, db){
     if (err) throw err;
+    
+    db.createCollection("searches");
     
     var searches = db.collection("searches");
     

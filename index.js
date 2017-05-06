@@ -15,7 +15,7 @@ mongo.connect(process.env.MONGODB_URI, function(err, db){
         res.send("Hello"); 
     });
     
-    app.get("/:search", function(req, res) {
+    app.get("/search/:search", function(req, res) {
         var search = req.params.search;
         var offset = (req.query.offset) ? req.query.offset : 0;
         var count = (req.query.count) ? req.query.count : 10;

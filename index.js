@@ -11,6 +11,10 @@ mongo.connect(process.env.MONGODB_URI, function(err, db){
     
     var searches = db.collection("searches");
     
+    app.get("/", function(req, res) {
+        res.send("Hello"); 
+    });
+    
     app.get("/:search", function(req, res) {
         var search = req.params.search;
         var offset = (req.query.offset) ? req.query.offset : 0;
